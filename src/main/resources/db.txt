@@ -1,0 +1,28 @@
+create schema db04;
+CREATE TABLE db04.users (
+    id bigint(20),
+    email varchar(50),
+    password varchar(120),
+    username varchar(20),
+    primary key(id),
+    unique(email,username)
+);
+describe db04.users;
+CREATE TABLE db04.roles (
+    id int(10),
+    name varchar(20),
+    primary key(id)
+);
+describe db04.roles;
+CREATE TABLE db04.user_roles (
+    user_id  bigint(20),
+    role_id  int(11)
+);
+describe db04.user_roles;
+INSERT INTO db04.roles VALUES(1,'ROLE_USER');
+INSERT INTO db04.roles VALUES(2,'ROLE_MODERATOR');
+INSERT INTO db04.roles VALUES(3,'ROLE_ADMIN');
+
+select * from db04.users ;
+select * from db04.roles ;
+select * from db04.user_roles ;
